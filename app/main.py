@@ -36,7 +36,7 @@ app.include_router(vote.router)
 
 @app.get("/")
 def root():
-    return {"message":"Hello world!!!"}
+    return {"message":"Hello world"}
 
 # Alembic startup function
 def run_alembic_upgrade():
