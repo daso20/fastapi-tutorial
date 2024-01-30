@@ -48,3 +48,6 @@ def on_startup():
     run_alembic_upgrade()
 
 app.add_event_handler("startup", on_startup)
+
+## Run app with:
+## uvicorn app.main:app --reload
