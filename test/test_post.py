@@ -58,11 +58,18 @@ def test_create_post_default_published_true(authorized_client, test_user, test_p
     assert created_post.published == True
     assert created_post.owner_id == test_user['id']
 
+# def test_unauthorized_user_create_posts(client, test_user, test_posts):
+#     res = client.post(
+#         "/posts/", json={"title": "titletitle1", "content": "contentcontent1"})
+#     assert res.status_code == 401
+
+##### Incorrect test for CI/CD pipeline testing #####
 def test_unauthorized_user_create_posts(client, test_user, test_posts):
     res = client.post(
         "/posts/", json={"title": "titletitle1", "content": "contentcontent1"})
-    assert res.status_code == 401
-
+    assert res.status_code == 200
+##### END #####
+    
 def test_unauhtorized_user_delete_post(client, test_user, test_posts):
     res = client.delete(
         f"/posts/{test_posts[0].id}")
